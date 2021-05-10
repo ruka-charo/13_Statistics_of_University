@@ -94,3 +94,47 @@ print('信頼区間1\n', x_min, x_max)
 (7/10) + 1.96*np.sqrt(0.21/200)
 
 ss.norm(0, 1).ppf(0.99)
+
+
+#%%
+data = np.array([84, 74, 93, 55, 65, 72, 58, 43, 75, 81])
+data.mean()
+18*1.64/np.sqrt(10)
+s2 = data.var(ddof=1)
+t = ss.t(9).ppf(0.95)
+60 + t*np.sqrt(s2/10)
+
+
+#%%
+data = np.array([7.88, 6.92, 7.53, 6.56, 7.13, 7.21])
+n = len(data)
+m = data.mean()
+s2 = data.var(ddof=1)
+
+data2 = np.array([i-7.01 for i in data])
+s2 = data2 @ data2 / (n-1)
+
+ss.chi2(6).ppf(0.05)
+f = (n-1)*s2/0.98
+f
+
+ss.chi2(5).ppf(0.05)
+f2 = (n-1)*s2/0.98
+f2
+
+
+#%%
+15 / np.sqrt((250/13)+(300/9))
+Sxy2 = (290*12 + 350*8) / 20
+Sxy2
+
+ss.t(20).interval(0.95)
+15 / np.sqrt(314*((1/13)+(1/9)))
+
+
+#%%
+data_a = np.array([35, 47, 29, 43, 41])
+data_b = np.array([44, 32, 53, 64, 50, 46, 40])
+
+data_a.var(ddof=1) / data_b.var(ddof=1)
+ss.f(4, 6).ppf(0.05)
